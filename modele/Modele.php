@@ -14,7 +14,7 @@ abstract class Modele {
     }
   
     private function getBdd() {
-		$dsn = "mysql:host=localhost;dbname=rendezvous";
+		$dsn = "mysql:host=localhost;dbname=rendezvous;charset=utf8";
 		$login = "root";
 		$mdp = "";
         if ($this->bdd == null){
