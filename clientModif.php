@@ -1,4 +1,8 @@
 <!doctype html>
+<?php
+	require "modele/ClientDb.php";
+	session_start();
+?>
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -13,34 +17,38 @@
 	<header>
 
 	</header>
+	<?php
+	$classeClient = new ClientDb();
+	$client = $classeClient->getClient($_SESSION["idCompte"]);
+	?>
 	<main>
 		<h1>Modification de mon profil</h1>
 		<section class="contenu-modif">
 			<section class="infos-perso">
 				<h2>Votre profil :</h2>
-				<form method="get" action="client.php" class="liste-infos-perso">
+				<form method="post" action="memoriseClient.php" class="liste-infos-perso">
 					<label for="nom" class="titre-info-client">
 						Nom
                     </label>
-					<input type="text" name="nom" id="nom" class="contenu-info-client" value="Machin">
+					<input type="text" name="nom" id="nom" class="contenu-info-client" value="<?php echo $client['nom']; ?>">
 					<label for="prenom" class="titre-info-client">
 						Prénom :
                     </label>
-					<input type="text" name="prenom" id="prenom" class="contenu-info-client" value="Truc">
+					<input type="text" name="prenom" id="prenom" class="contenu-info-client" value="<?php echo $client['prenom']; ?>">
 					<label for="email" class="titre-info-client">
 						Email :
 					</label>
-					<input type="email" name="email" id="email" class="contenu-info-client" value="machin.truc@email.com">
+					<input type="email" name="email" id="email" class="contenu-info-client" value="<?php echo $client['mail']; ?>">
 					<label for="tel" class="titre-info-client">
 						Téléphone :
                     </label>
-				    <input type="tel" name="tel" id="email" class="contenu-info-client" value="0606060606">
+				    <input type="tel" name="tel" id="tel" class="contenu-info-client" value="<?php echo $client['telephone']; ?>">
 					<div class="boutons">
 						<div class="bouton">
 							<input type="submit" value="Enregistrer" class="cta">
 						</div>
 						<div class="bouton">
-							<a href="client.php" class="cta">
+							<a href="clientModif.php" class="cta">
 								Annuler
 							</a>
 						</div>

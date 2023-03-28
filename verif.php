@@ -1,11 +1,13 @@
 <?php
 require "modele/CompteDb.php";
+session_start();
 
 $classCompte = new CompteDb();
 $ident = $_POST["ident"];
 $mdp = $_POST["mdp"];
 $compte = $classCompte->getCompte($ident, $mdp);
-echo $compte["droit"];
+$_SESSION["droit"] = $compte["droit"];
+$_SESSION["idCompte"] = $compte["id"];
 if ($compte["droit"] == null) {
 	//ouverture page 
 	header ('Location: index.php');

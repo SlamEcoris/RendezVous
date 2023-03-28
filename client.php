@@ -1,6 +1,7 @@
 <!doctype html>
 <?php
 	require "modele/ClientDb.php";
+	session_start();
 ?>
 <html>
 	<head>
@@ -16,7 +17,7 @@
 	<?php include_once('header.php'); ?>
 	<?php
 	$classeClient = new ClientDb();
-	$client = $classeClient->getClient(1);
+	$client = $classeClient->getClient($_SESSION["idCompte"]);
 	?>
 	<main>
 		<h1>Espace personnel</h1>
@@ -34,19 +35,19 @@
 						Prénom :
 					</div>
 					<div class="contenu-info-client">
-						Truc <!-- Insérez le nom du client -->
+						<?php echo $client['prenom']; ?>
 					</div>
 					<div class="titre-info-client">
 						Email :
 					</div>
 					<div class="contenu-info-client">
-						machin.truc@email.com <!--Insérez le nom du client-->
+						<?php echo $client['mail']; ?>
 					</div>
 					<div class="titre-info-client">
 						Téléphone :
 					</div>
 					<div class="contenu-info-client">
-						06.06.06.06.06 <!--Insérez le nom du client-->
+						<?php echo $client['telephone']; ?>
 					</div>
 				</div>
 			</section>
