@@ -1,0 +1,164 @@
+* {
+    margin: 0;
+}
+
+body {
+    font-family: 'Manrope', sans-serif;
+    font-size: 1em;
+}
+
+h1 {
+    font-size: 3.5em;
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+.contenu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.contenu-info-client {
+    padding: 10px;
+    background-color: #e2e2e2;
+    border-radius: 5px;
+}
+
+.titre-info-client {
+    padding: 5px;
+    font-size: 1.2em;
+}
+
+.infos-perso, .liste-rendez-vous {
+    width: 100%;
+    padding: 30px;
+}
+
+.cta {
+    background: linear-gradient(#8E86B5, #ACAEED);
+    color: white;
+    border-radius: 40px;
+    padding : 10px 20px;
+    font-size: 1.2em;
+    text-decoration: none;
+    border: none;
+}
+
+.cta:hover {
+    background: linear-gradient(#696484, #8788BA);
+    text-decoration: none;
+    border: none;
+}
+
+.bouton {
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+}
+
+.liste-infos-perso {
+    display: flex;
+    flex-direction: column;
+}
+
+.boutons {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+}
+
+.rendez-vous {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #c7e4fd;
+    border-radius: 5px;
+    width: 100%;
+    padding: 10px;
+}
+
+.liste-rendez-vous h2 {
+    padding-bottom: 20px;
+}
+
+.les-rendez-vous {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
+.rendez-vous-detail {
+    width: 50px;
+    height: 50px;
+}
+
+.rendez-vous-infos {
+    display: flex;
+    flex-direction: column;
+}
+
+.contenu-modif {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 70%;
+    margin: auto;
+}
+
+.les-boutons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.detail {
+    width: 70%;
+    margin: auto;
+}
+
+.contenu-detail {
+    padding: 10px;
+    background-color: #e2e2e2;
+    border-radius: 5px;
+}
+
+.titre-detail {
+    padding: 5px;
+    font-size: 1.2em;
+}
+
+header {
+    /*background-color: #3A868F;*/
+    background: linear-gradient(90deg,#3A868F,#7BAFB4);
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.liens {
+    display: flex;
+    gap: 20px;
+}
+
+.liens a {
+    color: white;
+    text-decoration: none;
+}
+
+.liens a:hover {
+    text-decoration: underline;
+}
+
+h1 {
+    padding-top: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-style: italic;
+    color: #3C868E;
+}
