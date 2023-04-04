@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  mer. 29 mars 2023 à 11:13
+-- Généré le :  mar. 04 avr. 2023 à 14:28
 -- Version du serveur :  5.7.17
 -- Version de PHP :  5.6.30
 
@@ -42,7 +42,7 @@ CREATE TABLE `client` (
 --
 
 INSERT INTO `client` (`id`, `nom`, `prenom`, `mail`, `telephone`, `idCompte`) VALUES
-(1, 'Client1aa', 'client1bb', 'client1@essai.frcc', '15 47 89 63dd', 3);
+(1, 'Client1a', 'client1b', 'client1@essai.frc', '15 47 89 63d', 3);
 
 -- --------------------------------------------------------
 
