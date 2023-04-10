@@ -6,7 +6,7 @@ class ClientDb extends Modele {
 		$sql = "SELECT nom, prenom, mail, telephone  FROM client WHERE idCompte = ?"; 
 		$resultat = $this->executerRequete($sql, array($id));
 		if ($resultat->rowCount() > 0)
-			return $resultat->fetch();
+			return $resultat->fetch(PDO::FETCH_ASSOC);
 		else
 			return 0;
     }

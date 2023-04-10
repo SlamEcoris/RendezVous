@@ -12,12 +12,12 @@ class RendezVousDb extends Modele {
 		$sql = "SELECT date, heureDebut, heureFin, objet, idClient, idEmploye FROM rendezvous WHERE id = ?"; 
 		$resultat = $this->executerRequete($sql, array($id));
 		if ($resultat->rowCount() > 0)
-			return $resultat->fetch();
+			return $resultat->fetch(PDO::FETCH_ASSOC);
 		else
 			throw new Exception("Pas de résultat");
     }
 
-    public function getRendezVousIdClient ($idClient) {
+	public function getRendezVousIdClient ($idClient) {
 		$sql = "SELECT id, date, heureDebut, heureFin, objet, idEmploye FROM rendezvous WHERE idClient = ?"; 
 		$resultat = $this->executerRequete($sql, array($idClient));
 		if ($resultat->rowCount() > 0)
@@ -26,4 +26,13 @@ class RendezVousDb extends Modele {
 			throw new Exception("Pas de résultat");
     }
 
+	public function getRendezVousDetail ($idEmploye) {
+		$sql = "SELECT civilite, nom, prenom, mail, telephone, adresse1, adresse2, codePostal, ville FROM employe 
+			INNER JOIN entreprise ON entreprise.id = employe.idEntreprise WHERE employe.id = ?";
+		$resultat = $this->executerRequete($sql, array($idEmploye));
+		if ($resultat->rowCount() >0 )
+			return $resultat->fetch(PDO::FETCH_ASSOC);
+		else
+			throw new Exception("Pas de résultat");
+	}
 }
