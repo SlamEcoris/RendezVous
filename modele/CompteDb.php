@@ -21,6 +21,11 @@ class CompteDb extends Modele {
 		$this->executerRequete($sql, array($identifiant, $this->cryptage($mdp), $droit));
 	}
 	
+	public function supprCompte ($id) {
+		$sql = "DELETE FROM compte WHERE id =?";
+		$this->executerRequete($sql, $id);
+
+	}
 	private function cryptage($info) {
 		return hash('sha512',$info);
 	}
