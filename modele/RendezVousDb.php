@@ -26,6 +26,15 @@ class RendezVousDb extends Modele {
 			throw new Exception("Pas de résultat");
     }
 
+	public function getRendezVousIdEmploye ($idEmploye) {
+		$sql = "SELECT id, date, heureDebut, heureFin, objet, idClient FROM rendezvous WHERE idEmploye = ?"; 
+		$resultat = $this->executerRequete($sql, array($idEmploye));
+		if ($resultat->rowCount() > 0)
+			return $resultat->fetchAll(PDO::FETCH_ASSOC);
+		else
+			throw new Exception("Pas de résultat");
+    }
+
 	public function getRendezVousDetail ($idEmploye) {
 		$sql = "SELECT civilite, nom, prenom, mail, telephone, adresse1, adresse2, codePostal, ville FROM employe 
 			INNER JOIN entreprise ON entreprise.id = employe.idEntreprise WHERE employe.id = ?";
@@ -34,5 +43,15 @@ class RendezVousDb extends Modele {
 			return $resultat->fetch(PDO::FETCH_ASSOC);
 		else
 			throw new Exception("Pas de résultat");
+	}
+
+	public function delRendezVous ($id) {
+		$sql = "DELETE FROM rendezvous WHERE id =?";
+		$this->executerRequete($sql, $id);
+	}
+
+	public function setRendezVous ($date, $heureDeb, $heureFin, $objet, $idClient, $idEmploye) {
+		$sql = 'INSERT INTO rendezvous(date, heureDeb, heureFin, objet, idClient, idEmploye) VALUES (?, ?, ?, ?, ?, ?)';
+		$this->executerRequete($sql, array($date, $heureDeb, $heureFin, $objet, $idClient, $idEmploye));
 	}
 }
