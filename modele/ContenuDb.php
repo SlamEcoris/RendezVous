@@ -1,8 +1,8 @@
 <?php
 require_once 'Modele.php';
-class RendezVousDb extends Modele {
+class contenuDb extends Modele {
 
-    public function getRendezVous() {
+    public function getContenu() {
         $sql = "SELECT id, date, heureDebut, heureFin, objet, idClient, idEmploye FROM rendezvous";
 		$rendezVous = $this->executerRequete($sql);
 		return $rendezVous->fetchAll(PDO::FETCH_ASSOC);
@@ -18,17 +18,8 @@ class RendezVousDb extends Modele {
     }
 
     public function getRendezVousIdClient ($idClient) {
-		$sql = "SELECT id, date, heureDebut, heureFin, objet, idEmploye FROM rendezvous WHERE idClient = ? AND date >= CURRENT_DATE"; 
+		$sql = "SELECT id, date, heureDebut, heureFin, objet, idEmploye FROM rendezvous WHERE idClient = ?"; 
 		$resultat = $this->executerRequete($sql, array($idClient));
-		if ($resultat->rowCount() > 0)
-			return $resultat->fetchAll(PDO::FETCH_ASSOC);
-		else
-			throw new Exception("Pas de résultat");
-    }
-
-	public function getRendezVousIdEmploye ($idEmploye) {
-		$sql = "SELECT id, date, heureDebut, heureFin, objet, idClient FROM rendezvous WHERE idEmploye = ? AND date >= CURRENT_DATE"; 
-		$resultat = $this->executerRequete($sql, array($idEmploye));
 		if ($resultat->rowCount() > 0)
 			return $resultat->fetchAll(PDO::FETCH_ASSOC);
 		else

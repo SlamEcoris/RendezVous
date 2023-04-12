@@ -3,10 +3,19 @@ require_once 'Modele.php';
 class ClientDb extends Modele {
 
     public function getClient ($id) {
-		$sql = "SELECT nom, prenom, mail, telephone  FROM client WHERE idCompte = ?"; 
+		$sql = "SELECT id, nom, prenom, mail, telephone  FROM client WHERE idCompte = ?"; 
 		$resultat = $this->executerRequete($sql, array($id));
 		if ($resultat->rowCount() > 0)
-			return $resultat->fetch(PDO::FETCH_ASSOC);
+			return $resultat->fetch();
+		else
+			return 0;
+    }
+
+	public function getClientId ($id) {
+		$sql = "SELECT nom, prenom, mail, telephone, idCompte  FROM client WHERE id = ?"; 
+		$resultat = $this->executerRequete($sql, array($id));
+		if ($resultat->rowCount() > 0)
+			return $resultat->fetch();
 		else
 			return 0;
     }
