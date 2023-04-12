@@ -14,7 +14,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Manrope&display=swap" rel="stylesheet">
 	</head>
 	<body>
-	<?php include_once('header.php'); ?>
+	<?php include_once('headerClient.php'); ?>
 	<?php
 	$classeClient = new ClientDb();
 	$client = $classeClient->getClient($_SESSION["idCompte"]);
@@ -27,11 +27,11 @@
 				<form method="post" action="memoriseClient.php" class="liste-infos-perso">
 					<label for="nom" class="titre-info-client">
 						Nom
-                    </label>
+					</label>
 					<input type="text" name="nom" id="nom" class="contenu-info-client" value="<?php echo $client['nom']; ?>">
 					<label for="prenom" class="titre-info-client">
 						Prénom :
-                    </label>
+					</label>
 					<input type="text" name="prenom" id="prenom" class="contenu-info-client" value="<?php echo $client['prenom']; ?>">
 					<label for="email" class="titre-info-client">
 						Email :
@@ -39,8 +39,8 @@
 					<input type="email" name="email" id="email" class="contenu-info-client" value="<?php echo $client['mail']; ?>">
 					<label for="tel" class="titre-info-client">
 						Téléphone :
-                    </label>
-				    <input type="tel" name="tel" id="tel" class="contenu-info-client" value="<?php echo $client['telephone']; ?>">
+					</label>
+					<input type="tel" name="tel" id="tel" class="contenu-info-client" value="<?php echo $client['telephone']; ?>">
 					<div class="boutons">
 						<div class="bouton">
 							<input type="submit" value="Enregistrer" class="cta">
@@ -51,13 +51,11 @@
 							</a>
 						</div>
 					</div>	
-                </form>
+				</form>
 			</section>
 		</section>
 	</main>
-	<footer>
-
-	</footer>
+	<?php include_once('footer.php'); ?>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 	</body>
 </html>

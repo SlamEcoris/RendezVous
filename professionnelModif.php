@@ -15,7 +15,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Manrope&display=swap" rel="stylesheet">
 	</head>
 	<body>
-	<?php include_once('header.php'); ?>
+	<?php include_once('headerProfessionnel.php'); ?>
 	<?php
 	$classeEmploye = new EmployeDb();
 	$employe = $classeEmploye->getEmployeId($_SESSION["idCompte"]);
@@ -31,11 +31,11 @@
 					<h2>Votre profil :</h2>
 					<label for="nom" class="titre-info-client">
 						Nom
-                    </label>
+					</label>
 					<input type="text" name="nom" id="nom" class="contenu-info-client" value="<?php echo $employe['nom']; ?>">
 					<label for="prenom" class="titre-info-client">
 						Prénom :
-                    </label>
+					</label>
 					<input type="text" name="prenom" id="prenom" class="contenu-info-client" value="<?php echo $employe['prenom']; ?>">
 					<label for="email" class="titre-info-client">
 						Email :
@@ -43,8 +43,8 @@
 					<input type="email" name="email" id="email" class="contenu-info-client" value="<?php echo $employe['mail']; ?>">
 					<label for="tel" class="titre-info-client">
 						Téléphone :
-                    </label>
-				    <input type="tel" name="tel" id="tel" class="contenu-info-client" value="<?php echo $employe['telephone']; ?>">
+					</label>
+					<input type="tel" name="tel" id="tel" class="contenu-info-client" value="<?php echo $employe['telephone']; ?>">
 					<h2 class="titreEntreprise">Votre entreprise :</h2>
 					<label for="activite" class="titre-info-client">
 						Activité :
@@ -84,13 +84,11 @@
 							</a>
 						</div>
 					</div>	
-                </form>
+				</form>
 			</section>
 		</section>
 	</main>
-	<footer>
-
-	</footer>
+	<?php include_once('footer.php'); ?>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 	</body>
 </html>

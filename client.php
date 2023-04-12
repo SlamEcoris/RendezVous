@@ -16,14 +16,13 @@
         <link href="https://fonts.googleapis.com/css2?family=Manrope&family=Montserra&display=swap" rel="stylesheet">
 	</head>
 	<body>
-	<?php include_once('header.php'); ?>
+	<?php include_once('headerClient.php'); ?>
 	<?php
 	$classeClient = new ClientDb();
 	$client = $classeClient->getClient($_SESSION["idCompte"]);
-	$_SESSION["idClient"] = $client["id"];
 
 	$classeRendezVous = new RendezVousDB();
-	$rendezVous = $classeRendezVous->getRendezVousIdClient($_SESSION["idClient"]);
+	$rendezVous = $classeRendezVous->getRendezVousIdClient($client["id"]);
 
 	$classeEmploye = new EmployeDb();
 	?>
@@ -101,9 +100,7 @@
 			</div>
 		</section>
 	</main>
-	<footer>
-
-	</footer>
+	<?php include_once('footer.php'); ?>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 	</body>
 </html>

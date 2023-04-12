@@ -2,9 +2,17 @@
     margin: 0;
 }
 
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: 'Manrope', sans-serif;
     font-size: 1em;
+    display: table;
+    width: 100%;
 }
 
 h1 {
@@ -133,8 +141,14 @@ h1 {
     font-size: 1.2em;
 }
 
-header {
+header, footer {
     background: linear-gradient(90deg,#3A868F,#7BAFB4);
+    color: white;
+}
+
+.bootsrap {
+    padding-top: 30px;
+    width: 100%;
 }
 
 nav {
@@ -183,4 +197,26 @@ nav {
     width: 100%;
     border-radius: 5px;
     border-color: lightgray;
+}
+
+footer {
+    display: table-row;
+    height: 100px;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 10px 0;
+}
+
+#conteneur-index {
+    padding-bottom: 30px;
+}
+
+.copyright {
+    padding: 20px;
 }

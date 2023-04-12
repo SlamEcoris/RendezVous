@@ -17,7 +17,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Manrope&family=Montserra&display=swap" rel="stylesheet">
 	</head>
 	<body>
-	<?php include_once('header.php'); ?>
+	<?php include_once('headerProfessionnel.php'); ?>
 	<?php
 	$classeEmploye = new EmployeDb();
 	$employe = $classeEmploye->getEmployeId($_SESSION["idCompte"]);
@@ -114,23 +114,23 @@
 						foreach ($rendezVous as $cle => $valeur) {
 							$client = $classeClient->getClientId($rendezVous[$cle]["idClient"]);?>
 							<div class="rendez-vous">
-							<div class="rendez-vous-infos">
-								<p class="rendez-vous-date-heure">
-									<?php echo $rendezVous[$cle]['date'];?>
-								</p>
-								<h3 class="rendez-vous-pro">
-									<?php echo $client['nom'].' '.$client['prenom']; ?>
-								</h3>
-								<p class="rendez-vous-profession">
-									<?php echo $rendezVous[$cle]['objet'];?>
-								</p>
-							</div>
-							<div>
-								<a href="professionnelDetailRendezVous.php?idRendezVous=<?php echo $rendezVous[$cle]['id'] ?>">
-									<img src="images/iconeDetail.png" alt="Icone pour accéder au détail"  class="rendez-vous-detail">
-								</a>
-							</div>
-						</div><?php
+								<div class="rendez-vous-infos">
+									<p class="rendez-vous-date-heure">
+										<?php echo $rendezVous[$cle]['date'];?>
+									</p>
+									<h3 class="rendez-vous-pro">
+										<?php echo $client['nom'].' '.$client['prenom']; ?>
+									</h3>
+									<p class="rendez-vous-profession">
+										<?php echo $rendezVous[$cle]['objet'];?>
+									</p>
+								</div>
+								<div>
+									<a href="professionnelDetailRendezVous.php?idRendezVous=<?php echo $rendezVous[$cle]['id'] ?>">
+										<img src="images/iconeDetail.png" alt="Icone pour accéder au détail"  class="rendez-vous-detail">
+									</a>
+								</div>
+							</div><?php
 						}
 					?>
 				</div>	
@@ -144,9 +144,7 @@
 			</div>
 		</section>
 	</main>
-	<footer>
-
-	</footer>
+	<?php include_once('footer.php'); ?>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 	</body>
 </html>

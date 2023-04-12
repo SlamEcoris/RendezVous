@@ -10,7 +10,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Manrope&display=swap" rel="stylesheet">
 	</head>
 	<body>
-	<?php include_once('header.php'); ?>
+	<?php include_once('headerClient.php'); ?>
 	<main>
 		<h1>Prendre rendez-vous</h1>
 		<form method="post" action="rechercheProfessionnel.php" class="recherche">
@@ -24,9 +24,7 @@
 		</form>
 		<h2>Professionnels disponible :</h2>
 	</main>
-	<footer>
-
-	</footer>
+	<?php include_once('footer.php'); ?>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 	</body>
 </html>
