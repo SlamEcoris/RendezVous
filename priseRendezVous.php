@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!doctype html>
 <html>
 	<head>
@@ -23,6 +24,18 @@
 			</div>
 		</form>
 		<h2>Professionnels disponible :</h2>
+		<?php 
+		if ( isset($_SESSION["recherche"])) {
+			$entreprises = $_SESSION["recherche"];
+			echo var_dump($entreprises).";;;;";
+			foreach ($entreprises as $entreprise){
+				echo var_dump($entreprise)."**";
+			}
+			echo "il y a des professionnel";
+		} else {
+			echo "pas de professionel";
+		}
+		?>
 	</main>
 	<?php include_once('footer.php'); ?>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
