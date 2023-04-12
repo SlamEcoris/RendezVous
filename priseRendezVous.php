@@ -10,12 +10,19 @@
         <link href="https://fonts.googleapis.com/css2?family=Manrope&display=swap" rel="stylesheet">
 	</head>
 	<body>
-	<header>
-
-	</header>
+	<?php include_once('header.php'); ?>
 	<main>
 		<h1>Prendre rendez-vous</h1>
-		
+		<form method="post" action="rechercheProfessionnel.php" class="recherche">
+			<div class="champsRecherche">
+				<input type="text" name="recherche" id="recherche" placeholder="Nom, activité, ..." class="champRecherche">
+				<input type="text" name="lieux" id="lieux" placeholder="Ville ou code postal" class="champRecherche">
+			</div>
+			<div class="bouton">
+				<input type="submit" value="Rechercher" class="cta">
+			</div>
+		</form>
+		<h2>Professionnels disponible :</h2>
 	</main>
 	<footer>
 

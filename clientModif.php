@@ -14,9 +14,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Manrope&display=swap" rel="stylesheet">
 	</head>
 	<body>
-	<header>
-
-	</header>
+	<?php include_once('header.php'); ?>
 	<?php
 	$classeClient = new ClientDb();
 	$client = $classeClient->getClient($_SESSION["idCompte"]);
@@ -48,7 +46,7 @@
 							<input type="submit" value="Enregistrer" class="cta">
 						</div>
 						<div class="bouton">
-							<a href="clientModif.php" class="cta">
+							<a href="client.php" class="cta">
 								Annuler
 							</a>
 						</div>

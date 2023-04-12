@@ -1,6 +1,8 @@
 <!doctype html>
-<?php
+<?php	
 	require "modele/ClientDb.php";
+	require "modele/RendezVousDb.php";
+	require "modele/EmployeDb.php";
 	session_start();
 ?>
 <html>
@@ -18,6 +20,12 @@
 	<?php
 	$classeClient = new ClientDb();
 	$client = $classeClient->getClient($_SESSION["idCompte"]);
+	$_SESSION["idClient"] = $client["id"];
+
+	$classeRendezVous = new RendezVousDB();
+	$rendezVous = $classeRendezVous->getRendezVousIdClient($_SESSION["idClient"]);
+
+	$classeEmploye = new EmployeDb();
 	?>
 	<main>
 		<h1>Espace personnel</h1>
@@ -54,38 +62,29 @@
 			<section class="liste-rendez-vous">
 				<h2>Vos rendez-vous :</h2>
 				<div class="les-rendez-vous">
-					<div class="rendez-vous">
-						<div class="rendez-vous-infos">
-							<p class="rendez-vous-date-heure">
-							Samedi 01 avril à 10h00
-							</p>
-							<h3 class="rendez-vous-pro">Mme Dupont</h3>
-							<p class="rendez-vous-profession">
-								Photographe
-							</p>
-						</div>
-						<div>
-							<a href="detailRendezVous.php">
-								<img src="images/iconeDetail.png" alt="Icone pour accéder au détail"  class="rendez-vous-detail">
-							</a>
-						</div>
-					</div>
-					<div class="rendez-vous">
-						<div class="rendez-vous-infos">
-							<p class="rendez-vous-date-heure">
-							Samedi 01 avril à 11h00
-							</p>
-							<h3 class="rendez-vous-pro">Mme Dupont</h3>
-							<p class="rendez-vous-profession">
-								Photographe
-							</p>
-						</div>
-						<div>
-							<a href="detailRendezVous.php">
-								<img src="images/iconeDetail.png" alt="Icone pour accéder au détail"  class="rendez-vous-detail">
-							</a>
-						</div>
-					</div>
+					<?php 
+						foreach ($rendezVous as $cle => $valeur) {
+							$employe = $classeEmploye->getEmployeId($rendezVous[$cle]["idEmploye"]);?>
+							<div class="rendez-vous">
+							<div class="rendez-vous-infos">
+								<p class="rendez-vous-date-heure">
+									<?php echo $rendezVous[$cle]['date'];?>
+								</p>
+								<h3 class="rendez-vous-pro">
+									<?php echo $employe['nom'].' '.$employe['prenom']; ?>
+								</h3>
+								<p class="rendez-vous-profession">
+									<?php echo $rendezVous[$cle]['objet'];?>
+								</p>
+							</div>
+							<div>
+								<a href="clientDetailRendezVous.php?idRendezVous=<?php echo $rendezVous[$cle]['id'] ?>">
+									<img src="images/iconeDetail.png" alt="Icone pour accéder au détail"  class="rendez-vous-detail">
+								</a>
+							</div>
+						</div><?php
+						}
+					?>
 				</div>	
 			</section>
 		</section>
