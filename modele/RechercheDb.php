@@ -2,15 +2,30 @@
 require_once 'Modele.php';
 class RechercheDb extends Modele {
 
-    public function getRecherchePros($recherche) {
+    /*public function getRecherchePros($recherche1, $recherche2, $recherche3, $recherche4) {
         $sql = "SELECT employe.id
 				FROM employe
 				JOIN entreprise on employe.idEntreprise=entreprise.id
-				WHERE employe.nom LIKE '%?%'
-					OR employe.prenom LIKE '%?%'
-					OR entreprise.activite LIKE '%?%'
-					OR entreprise.presentation LIKE '%?%';";
-		$rendezVous = $this->executerRequete($sql);
+				WHERE employe.nom LIKE ?
+					OR employe.prenom LIKE ?
+					OR entreprise.activite LIKE ?
+					OR entreprise.presentation LIKE ?";
+		$rendezVous = $this->executerRequete($sql, array($recherche1, $recherche2, $recherche3, $recherche4));
 		return $rendezVous->fetchAll(PDO::FETCH_ASSOC);
+    }*/
+
+	public function getRecherchePros($recherche1, $recherche2, $recherche3, $recherche4) {
+        $sql = "SELECT employe.id
+				FROM employe
+				JOIN entreprise on employe.idEntreprise=entreprise.id
+				WHERE employe.nom LIKE ?
+					OR employe.prenom LIKE ?
+					OR entreprise.activite LIKE ?
+					OR entreprise.presentation LIKE ?";
+		$recherche = $this->executerRequete($sql, array($recherche1, $recherche2, $recherche3, $recherche4));
+		if ($recherche->rowCount() > 0)
+			return $recherche->fetch();
+		else
+			return 0;
     }
 }
