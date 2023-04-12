@@ -25,15 +25,11 @@
 		</form>
 		<h2>Professionnels disponible :</h2>
 		<?php 
-		if ( isset($_SESSION["recherche"])) {
-			$entreprises = $_SESSION["recherche"];
-			echo var_dump($entreprises).";;;;";
-			foreach ($entreprises as $entreprise){
-				echo var_dump($entreprise)."**";
+		if ( isset($_SESSION["recherche"]) && !empty(($_SESSION["recherche"]))) {
+			$resultats = $_SESSION["recherche"];
+			foreach ($resultats as $resultat){
+				echo $resultat['nom']." ".$resultat['prenom']."<br>";
 			}
-			echo "il y a des professionnel";
-		} else {
-			echo "pas de professionel";
 		}
 		?>
 	</main>
