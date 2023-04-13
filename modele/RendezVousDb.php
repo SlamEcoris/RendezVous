@@ -14,7 +14,7 @@ class RendezVousDb extends Modele {
 		if ($resultat->rowCount() > 0)
 			return $resultat->fetch();
 		else
-			throw new Exception("Pas de résultat");
+			return null;
     }
 
     public function getRendezVousIdClient ($idClient) {
@@ -23,7 +23,7 @@ class RendezVousDb extends Modele {
 		if ($resultat->rowCount() > 0)
 			return $resultat->fetchAll(PDO::FETCH_ASSOC);
 		else
-			throw new Exception("Pas de résultat");
+			return null;
     }
 
 	public function getRendezVousIdEmploye ($idEmploye) {
@@ -32,7 +32,7 @@ class RendezVousDb extends Modele {
 		if ($resultat->rowCount() > 0)
 			return $resultat->fetchAll(PDO::FETCH_ASSOC);
 		else
-			throw new Exception("Pas de résultat");
+			return null;
     }
 
 }

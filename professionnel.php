@@ -111,6 +111,7 @@
 				<h2>Vos rendez-vous :</h2>
 				<div class="les-rendez-vous">
 					<?php 
+					if ($rendezVous != null) {
 						foreach ($rendezVous as $cle => $valeur) {
 							$client = $classeClient->getClientId($rendezVous[$cle]["idClient"]);?>
 							<div class="rendez-vous">
@@ -132,6 +133,7 @@
 								</div>
 							</div><?php
 						}
+					}
 					?>
 				</div>	
 			</section>
