@@ -177,7 +177,7 @@ nav {
     padding-top: 20px;    
 }
 
-.recherche {
+.barre-recherche {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -219,4 +219,79 @@ footer {
 
 .copyright {
     padding: 20px;
+}
+
+.aucun-rendez-vous {
+    font-size: 1.2em;
+    text-align: center;
+}
+
+.la-recherche {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #e1f1ff;
+    border-radius: 5px;
+    width: 45%;
+    padding: 10px;
+}
+
+.recherche {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 15px;
+    width: 90%;
+    padding: 10px;
+    margin: auto;
+}
+
+.recherche-icone {
+    width: 50px;
+    height: 50px;
+}
+
+.recherche-detail {
+    display: flex;
+    align-items: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    gap: 10px;
+}
+
+.cta-rendez-vous {
+    background: linear-gradient(#8E86B5, #ACAEED);
+    color: white;
+    border-radius: 40px;
+    padding : 10px 20px;
+    font-size: 1em;
+    text-decoration: none;
+    border: none;
+}
+
+.cta-rendez-vous:hover {
+    background: linear-gradient(#696484, #8788BA);
+    text-decoration: none;
+    border: none;
+}
+
+.recherche-activite {
+    /*display: flex;
+    justify-content: space-between;
+    flex-direction: row;*/
+    font-weight: normal;
+    font-size: 1em;
+    /*gap: 30px;*/
+}
+
+.recherche-titre {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.recherche-detail-pro {
+    display: flex;
+    flex-direction: column;
 }

@@ -62,26 +62,35 @@
 				<h2>Vos rendez-vous :</h2>
 				<div class="les-rendez-vous">
 					<?php 
-						foreach ($rendezVous as $cle => $valeur) {
-							$employe = $classeEmploye->getEmployeId($rendezVous[$cle]["idEmploye"]);?>
-							<div class="rendez-vous">
-							<div class="rendez-vous-infos">
-								<p class="rendez-vous-date-heure">
-									<?php echo $rendezVous[$cle]['date'];?>
-								</p>
-								<h3 class="rendez-vous-pro">
-									<?php echo $employe['nom'].' '.$employe['prenom']; ?>
-								</h3>
-								<p class="rendez-vous-profession">
-									<?php echo $rendezVous[$cle]['objet'];?>
-								</p>
+						if ($rendezVous != null) {
+							foreach ($rendezVous as $cle => $valeur) {
+								$employe = $classeEmploye->getEmployeId($rendezVous[$cle]["idEmploye"]);?>
+								<div class="rendez-vous">
+									<div class="rendez-vous-infos">
+										<h3>
+											<?php echo $employe['nom'].' '.$employe['prenom']; ?>
+										</h3>
+										<p class="rendez-vous-date-heure">
+											<?php echo $rendezVous[$cle]['date'];?>
+										</p>
+										<p class="rendez-vous-profession">
+											<?php echo $rendezVous[$cle]['objet'];?>
+										</p>
+									</div>
+									<div>
+										<a href="clientDetailRendezVous.php?idRendezVous=<?php echo $rendezVous[$cle]['id'] ?>">
+											<img src="images/iconeDetail.png" alt="Icone pour accéder au détail"  class="rendez-vous-detail">
+										</a>
+									</div>
+								</div><?php
+							}
+						}
+						else {
+							?>
+							<div class="aucun-rendez-vous">
+								Vous n'avez aucun rendez-vous prochainement.
 							</div>
-							<div>
-								<a href="clientDetailRendezVous.php?idRendezVous=<?php echo $rendezVous[$cle]['id'] ?>">
-									<img src="images/iconeDetail.png" alt="Icone pour accéder au détail"  class="rendez-vous-detail">
-								</a>
-							</div>
-						</div><?php
+							<?php
 						}
 					?>
 				</div>	

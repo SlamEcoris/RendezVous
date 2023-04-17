@@ -134,6 +134,13 @@
 							</div><?php
 						}
 					}
+					else {
+						?>
+						<div class="aucun-rendez-vous">
+							Vous n'avez aucun rendez-vous prochainement.
+						</div>
+						<?php
+					}
 					?>
 				</div>	
 			</section>
