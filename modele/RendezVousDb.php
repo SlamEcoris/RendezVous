@@ -35,4 +35,8 @@ class RendezVousDb extends Modele {
 			return null;
     }
 
+	public function deleteRendezVousId($id) {
+		$sql = 'DELETE FROM rendezvous WHERE id = ?';
+		$this->executerRequete($sql, array($id));
+	}
 }

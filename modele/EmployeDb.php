@@ -17,6 +17,16 @@ class EmployeDb extends Modele {
 			throw new Exception("Pas de résultat");
     }
 
+	public function getEmployeIdCompte ($idCompte) {
+		$sql = "SELECT id, nom, prenom, mail, telephone, idCompte, idEntreprise FROM employe WHERE idCompte = ?"; 
+		$resultat = $this->executerRequete($sql, array($idCompte));
+		if ($resultat->rowCount() > 0)
+			return $resultat->fetch();
+		else
+			throw new Exception("Pas de résultat");
+    }
+
+
 	public function modifEmployeId ($id, $nom, $prenom, $mail, $telephone) {
 		$sql = "UPDATE employe SET nom = ?, prenom = ?, mail = ?, telephone = ? WHERE id = ?"; 
 		$this->executerRequete($sql, array ($nom, $prenom, $mail, $telephone, $id));
