@@ -6,7 +6,7 @@ class CompteDb extends Modele {
 		$sql = "SELECT id, droit FROM compte WHERE identifiant = ? AND mdp = ?"; 
 		$resultat = $this->executerRequete($sql, array($identifiant, $this->cryptage($mdp)));
 		if ($resultat->rowCount() > 0)
-			return $resultat->fetch();
+			return $resultat->fetch(PDO::FETCH_ASSOC);
 		else
 			return 0;
     }

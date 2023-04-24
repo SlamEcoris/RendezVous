@@ -12,7 +12,7 @@ class RendezVousDb extends Modele {
 		$sql = "SELECT date, heureDebut, heureFin, objet, idClient, idEmploye FROM rendezvous WHERE id = ?"; 
 		$resultat = $this->executerRequete($sql, array($id));
 		if ($resultat->rowCount() > 0)
-			return $resultat->fetch();
+			return $resultat->fetch(PDO::FETCH_ASSOC);
 		else
 			return null;
     }

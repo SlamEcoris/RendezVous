@@ -11,7 +11,7 @@ class contenuDb extends Modele {
     public function getRendezVousId ($id) {
 		$sql = "SELECT date, heureDebut, heureFin, objet, idClient, idEmploye FROM rendezvous WHERE id = ?"; 
 		$resultat = $this->executerRequete($sql, array($id));
-		if ($resultat->rowCount() > 0)
+		if ($resultat->rowCount(PDO::FETCH_ASSOC) > 0)
 			return $resultat->fetch();
 		else
 			throw new Exception("Pas de résultat");

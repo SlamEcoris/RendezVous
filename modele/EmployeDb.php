@@ -12,7 +12,7 @@ class EmployeDb extends Modele {
 		$sql = "SELECT nom, prenom, mail, telephone, idCompte, idEntreprise FROM employe WHERE id = ?"; 
 		$resultat = $this->executerRequete($sql, array($id));
 		if ($resultat->rowCount() > 0)
-			return $resultat->fetch();
+			return $resultat->fetch(PDO::FETCH_ASSOC);
 		else
 			throw new Exception("Pas de résultat");
     }
@@ -20,5 +20,15 @@ class EmployeDb extends Modele {
 	public function modifEmployeId ($id, $nom, $prenom, $mail, $telephone) {
 		$sql = "UPDATE employe SET nom = ?, prenom = ?, mail = ?, telephone = ? WHERE id = ?"; 
 		$this->executerRequete($sql, array ($nom, $prenom, $mail, $telephone, $id));
-		   }
+	}
+
+	public function getEmployeEntrepriseId ($id) {
+		$sql = "SELECT civilite, nom, prenom, adresse1, adresse2, codePostal, ville FROM employe 
+			INNER JOIN entreprise ON employe.idEntreprise = entreprise.id WHERE employe.id = ?";
+		$resultat = $this->executerRequete($sql, array($id));
+		if ($resultat->rowCount() > 0)
+			return $resultat->fetch(PDO::FETCH_ASSOC);
+		else
+			throw new Exception("Pas de résultat");
+	}
 }

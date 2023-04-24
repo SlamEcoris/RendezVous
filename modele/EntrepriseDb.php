@@ -12,7 +12,7 @@ class EntrepriseDb extends Modele {
 		$sql = "SELECT activite, adresse1, adresse2, codePostal, ville, raisonSociale, presentation FROM entreprise WHERE id = ?"; 
 		$resultat = $this->executerRequete($sql, array($id));
 		if ($resultat->rowCount() > 0)
-			return $resultat->fetch();
+			return $resultat->fetch(PDO::FETCH_ASSOC);
 		else
 			throw new Exception("Pas de résultat");
     }

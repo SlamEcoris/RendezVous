@@ -13,7 +13,7 @@ class RechercheDb extends Modele {
 					OR entreprise.presentation LIKE ?";
 		$recherche = $this->executerRequete($sql, array($recherche1, $recherche1, $recherche1, $recherche1));
 		if ($recherche->rowCount() > 0)
-			return $recherche->fetchAll();
+			return $recherche->fetchAll(PDO::FETCH_ASSOC);
 		else
 			return 0;
     }
