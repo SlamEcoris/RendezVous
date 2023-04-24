@@ -94,7 +94,7 @@
 				</a>
 			</div>
 			<div class="bouton">
-				<a href="client.php" class="cta">
+				<a href="supprimeRendezVousClient.php?idRendezVous=<?php echo $idRendezVous ?>" class="cta">
 					Supprimer
 				</a>
 			</div>

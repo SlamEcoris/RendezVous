@@ -26,7 +26,7 @@
 				<h2>Votre profil :</h2>
 				<form method="post" action="memoriseClient.php" class="liste-infos-perso">
 					<label for="nom" class="titre-info-client">
-						Nom
+						Nom :
 					</label>
 					<input type="text" name="nom" id="nom" class="contenu-info-client" value="<?php echo $client['nom']; ?>">
 					<label for="prenom" class="titre-info-client">

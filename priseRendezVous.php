@@ -19,8 +19,8 @@
 		<h1>Prendre rendez-vous</h1>
 		<form method="post" action="rechercheProfessionnel.php" class="barre-recherche">
 			<div class="champsRecherche">
-				<input type="text" name="recherche" id="recherche" placeholder="Nom, activité, ..." class="champRecherche">
-				<input type="text" name="lieux" id="lieux" placeholder="Ville ou code postal" class="champRecherche">
+				<input type="search" name="recherche" id="recherche" placeholder="Nom, activité, ..." class="champRecherche">
+				<input type="search" name="lieux" id="lieux" placeholder="Ville ou code postal" class="champRecherche">
 			</div>
 			<div class="bouton">
 				<input type="submit" value="Rechercher" class="cta">
@@ -31,6 +31,7 @@
 			<?php 
 			if ((isset($_SESSION["recherche"]) && !empty($_SESSION["recherche"])) || (isset($_SESSION["lieux"]) && !empty($_SESSION["lieux"])) ) {
 				$resultats = $_SESSION["recherche"];
+				$_SESSION["recherche"] = array();
 				foreach ($resultats as $resultat){
 					?>
 					<div class="la-recherche">
@@ -55,7 +56,7 @@
 							</div>
 						</div>
 						<div>
-							<a href="rendezVousAvecLePro.php" class="cta-rendez-vous">Voir la prochaine disponibilité</a>
+							<a href="rendezVousAvecLePro.php?idEmploye=<?php echo $resultat['id'] ?>" class="cta-rendez-vous">Voir la prochaine disponibilité</a>
 						</div>
 					</div>
 					<?php

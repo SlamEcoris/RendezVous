@@ -18,7 +18,7 @@
 	<?php include_once('headerProfessionnel.php'); ?>
 	<?php
 	$classeEmploye = new EmployeDb();
-	$employe = $classeEmploye->getEmployeId($_SESSION["idCompte"]);
+	$employe = $classeEmploye->getEmployeIdCompte($_SESSION["idCompte"]);
 
 	$classeEntreprise = new EntrepriseDb();
 	$entreprise = $classeEntreprise->getEntrepriseId($employe["idEntreprise"]);

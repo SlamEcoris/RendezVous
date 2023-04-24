@@ -18,6 +18,12 @@
         $classeRecherche = new RechercheDb();
         $rechercheResultat = $classeRecherche->getRechercheVille($ville);
     }
+    else {
+        $recherche = $_POST['recherche'];
+        $ville = $_POST['lieux'];
+        $classeRecherche = new RechercheDb();
+        $rechercheResultat = $classeRecherche->getRecherchePros($recherche, $ville);
+    }
     $_SESSION["recherche"] = $rechercheResultat;
     header ("location: priseRendezVous.php");
 ?>

@@ -4,6 +4,7 @@
 	require "modele/RendezVousDb.php";
 	require "modele/EntrepriseDb.php";
 	require "modele/ClientDb.php";
+	require "modele/HorairreDb.php";
 	session_start();
 ?>
 <html>
@@ -20,21 +21,36 @@
 	<?php include_once('headerProfessionnel.php'); ?>
 	<?php
 	$classeEmploye = new EmployeDb();
-	$employe = $classeEmploye->getEmployeId($_SESSION["idCompte"]);
+	$employe = $classeEmploye->getEmployeIdCompte($_SESSION["idCompte"]);
 
 	$classeRendezVous = new RendezVousDB();
-	$rendezVous = $classeRendezVous->getRendezVousIdEmploye($_SESSION["idCompte"]);
+	$rendezVous = $classeRendezVous->getRendezVousIdEmploye($employe["id"]);
 
 	$classeEntreprise = new EntrepriseDb();
 	$entreprise = $classeEntreprise->getEntrepriseId($employe["idEntreprise"]);
+	$_SESSION["idEntreprise"]=$employe["idEntreprise"];
 
 	$classeClient = new ClientDb();
+
+	$classeHorairre = new HorairreDb();
+	$listeHoraire = $classeHorairre->getHorairre();
+	$presenceHoraire=false;
+	foreach ($listeHoraire as $cle=>$valeur){
+		if ($listeHoraire[$cle]["idEntreprise"]==$_SESSION["idEntreprise"]){
+			$presenceHoraire = true;
+		}
+	}
+	if ($presenceHoraire == true) {
+		$horairre = $classeHorairre->getHorairreIdEntreprise($_SESSION["idEntreprise"]);
+	} else {
+		$horairre = array();
+	}
 	?>
 	<main>
 		<h1>Espace professionnel</h1>
 		<section class="contenu">
 			<section class="infos-perso">
-				<h2>Votre profil :</h2>
+				<h2 id="profil">Mon profil :</h2>
 				<div class="liste-infos-perso">
 					<div class="titre-info-client">
 						Nom :
@@ -61,7 +77,7 @@
 						<?php echo $employe['telephone']; ?>
 					</div>
 				</div>
-				<h2 class="titreEntreprise">Votre entreprise :</h2>
+				<h2 class="titreEntreprise" id="entreprise">Mon entreprise :</h2>
 				<div class="liste-infos-perso">
 					<div class="titre-info-client">
 						Activité :
@@ -108,7 +124,77 @@
 				</div>
 			</section>
 			<section class="liste-rendez-vous">
-				<h2>Vos rendez-vous :</h2>
+				<h2 id="horaires">Mes horaires :</h2>
+				<div class="horaires">
+					<div class="horaires-jours">
+						<?php
+							if (!empty($horairre)){
+								foreach ($horairre as $cle=>$valeur) {
+									?>
+									<div class="horaires-jour">
+										<?php echo $horairre[$cle]["date"]." : "; ?> 
+									</div>
+									<?php
+								}
+							} else { ?>
+								<div class="aucun-horaire">
+									Vous n'avez pas d'horaires renseignés.
+								</div>
+								<?php
+							}?>
+					</div>
+					<div class="horaires-plages">
+						<?php
+							foreach ($horairre as $cle=>$valeur) {
+								if ($horairre[$cle]["heureDebAM"]=="00:00:00"){
+									$horairre[$cle]["heureDebAM"]="";
+								}
+								if ($horairre[$cle]["heureFinAM"]=="00:00:00"){
+									$horairre[$cle]["heureFinAM"]="";
+								}
+								if ($horairre[$cle]["heureDebPM"]=="00:00:00"){
+									$horairre[$cle]["heureDebPM"]="";
+								}
+								if ($horairre[$cle]["heureFinPM"]=="00:00:00"){
+									$horairre[$cle]["heureFinPM"]="";
+								}?>
+								<div class="horaires-plage">
+									<?php 
+									if ($horairre[$cle]["heureDebAM"]=="" && $horairre[$cle]["heureFinAM"]=="" && $horairre[$cle]["heureDebPM"]=="" && $horairre[$cle]["heureFinPM"]=="") {
+										echo "Fermé";
+									} 
+									elseif ($horairre[$cle]["heureDebAM"]=="" && $horairre[$cle]["heureFinAM"]=="") {
+										echo "Fermé, ".$horairre[$cle]["heureDebPM"]." - ".$horairre[$cle]["heureFinPM"];
+									} 
+									elseif ($horairre[$cle]["heureDebPM"]=="" && $horairre[$cle]["heureFinPM"]=="") {
+										echo $horairre[$cle]["heureDebAM"]." - ".$horairre[$cle]["heureFinAM"].", Fermé";
+									} 
+									else {
+										echo $horairre[$cle]["heureDebAM"]." - ".$horairre[$cle]["heureFinAM"].", ".$horairre[$cle]["heureDebPM"]." - ".$horairre[$cle]["heureFinPM"]; 
+									}?> 
+								</div>
+								<?php
+							}?>
+					</div>
+				</div>
+				<div class="bouton">
+					<?php
+						if (!empty($horairre)) {
+							?>
+							<a href="horairreModif.php" class="cta">
+								Modifier vos horaires
+							</a>
+							<?php
+						} else {
+							?>
+							<a href="horairreModif.php" class="cta">
+								Ajouter vos horaires
+							</a>
+							<?php
+						} 
+					?>						
+				</div>
+				<h2 id="rendezVous">Mes rendez-vous :</h2>
 				<div class="les-rendez-vous">
 					<?php 
 					if ($rendezVous != null) {

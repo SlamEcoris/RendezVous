@@ -35,6 +35,7 @@ h1 {
     padding: 10px;
     background-color: #e2e2e2;
     border-radius: 5px;
+    height: 1em;
 }
 
 .titre-info-client {
@@ -44,6 +45,7 @@ h1 {
 
 .infos-perso, .liste-rendez-vous {
     width: 100%;
+    height: auto;
     padding: 30px;
 }
 
@@ -98,6 +100,7 @@ h1 {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center ;
     gap: 20px;
 }
 
@@ -134,6 +137,7 @@ h1 {
     padding: 10px;
     background-color: #e2e2e2;
     border-radius: 5px;
+    height: 1em;
 }
 
 .titre-detail {
@@ -223,7 +227,13 @@ footer {
 
 .aucun-rendez-vous {
     font-size: 1.2em;
-    text-align: center;
+    height: 260px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-style: italic;
+    font-weight: bold;
 }
 
 .la-recherche {
@@ -294,4 +304,185 @@ footer {
 .recherche-detail-pro {
     display: flex;
     flex-direction: column;
+}
+
+.horaires {
+    display: flex;
+    flex-direction: row;
+}
+
+.horaires-jours, .horaires-plages {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.horaires-jour {
+    font-weight: bold;
+}
+
+.horaires-jour, .horaires-plage {
+    padding-bottom: 5px;
+}
+
+.titre-horaire {
+    padding: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+    background-color: rgba(225, 225, 225, 0.532);
+}
+
+.contenu-horaire {
+    padding: 10px;
+    background-color: #e2e2e2;
+    border-radius: 5px;
+    height: 1em;
+    width: auto;
+}
+
+.horaire-modif {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 90%;
+    margin: auto;
+}
+
+.titre-detail-horaire {
+    padding: 5px;
+    font-size: 1.1em;
+    padding: 10px;
+    vertical-align: middle;
+}
+
+.modif-horaires {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 30px;
+}
+
+.modif-detail {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    width: auto;
+}
+
+.modif-detail-horaire {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: auto;
+    gap: 10px;
+}
+
+.modif-horaire {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+}
+
+.aucun-horaire {
+    width: 180%;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+.detail-pro-rdv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 90%;
+    margin: auto;
+    padding-bottom: 100px;
+}
+
+.le-pro-activite {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+}
+
+.le-pro-presentation {
+    width: 70%;
+    height: 200px;
+    padding: 10px;
+    background-color: #fcf6ff;
+    border-radius: 5px;
+}
+
+.le-pro-horaire {
+    width: 450px;
+    background-color: #dafff6;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.le-pro-infos {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 90%;
+    gap: 50px;
+    padding-bottom: 30px;
+}
+
+.le-pro-detail {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+}
+
+.le-pro-temps {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    height: auto;
+    gap: 50px;
+}
+
+.le-pro-image {
+    width: 150px;
+    height: 150px;
+}
+
+.le-pro-creneaux {
+    width: 70%;
+    border: 2px #89bfe3 solid;
+    border-radius: 15px;
+}
+
+.le-pro-creneaux h3 {
+    background-color: #89bfe38e;
+    border-radius: 10px 10px 0 0;
+}
+
+.le-pro-horaire h3, .le-pro-creneaux h3 {
+    text-align: center;
+    padding-bottom: 5px;
+}
+
+.le-pro-horaire .aucun-horaire {
+    width: 100%;
+    height: 260px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.le-pro-horaire .horaires {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
