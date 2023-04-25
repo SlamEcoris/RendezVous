@@ -73,7 +73,7 @@
 					<label for="presentation" class="titre-info-client">
 						Présentation :
 					</label>
-					<input type="text" name="presentation" id="presentation" class="contenu-info-client" value="<?php echo $entreprise['presentation']; ?>">
+					<textarea name="presentation" id="presentation" class="contenu-info-client-presentation-modif"><?php echo $entreprise['presentation']; ?></textarea>
 					<label for="dureCreneaux" class="titre-info-client">
 						Durée par défaut d'un rendez-vous : 
 					</label>

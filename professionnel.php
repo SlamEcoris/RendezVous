@@ -119,7 +119,7 @@
 					<div class="titre-info-client">
 						Présentation :
 					</div>
-					<div class="contenu-info-client">
+					<div class="contenu-info-client-presentation">
 						<?php echo $entreprise['presentation']; ?>
 					</div>
 					<div class="titre-info-client">

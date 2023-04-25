@@ -81,7 +81,7 @@
 									}
 								} else { ?>
 									<div class="aucun-horaire">
-										Aucun horaires renseignés.
+										Aucun horaire renseigné.
 									</div>
 									<?php
 								}?>
@@ -266,7 +266,7 @@
 								}
 							} else { ?>
 								<div class="aucun-creneaux">
-									Le professionnel n'a pas renseigné ces horaires, il n'est donc pas possible d'avoir de rendez-vous avec lui.
+									Le professionnel n'a pas renseigné ses horaires, il n'est donc pas possible de prendre rendez-vous avec lui.
 								</div>
 								<?php
 							}

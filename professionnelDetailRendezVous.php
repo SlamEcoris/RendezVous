@@ -34,7 +34,7 @@
 		$entreprise = $classeEntreprise->getEntrepriseId($employe['idEntreprise']);
 	?>
 	<main>
-		<h1>Detail du rendez vous</h1>
+		<h1>Détail du rendez vous</h1>
 		<section class="detail">
 			<div class="titre-detail">
 				Objet du rendez-vous :
