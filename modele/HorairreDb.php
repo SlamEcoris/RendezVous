@@ -22,8 +22,6 @@ class HorairreDb extends Modele {
 		$resultat = $this->executerRequete($sql, array($idEntreprise));
 		if ($resultat->rowCount() > 0)
 			return $resultat->fetchAll(PDO::FETCH_ASSOC);
-		else
-			throw new Exception("Pas de résultat");
     }
 
 	public function getHorairreIdEntrepriseAndDate ($idEntreprise, $date) {

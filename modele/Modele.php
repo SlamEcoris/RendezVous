@@ -14,9 +14,13 @@ abstract class Modele {
     }
   
     private function getBdd() {
-		$dsn = "mysql:host=localhost;dbname=rendezvous;charset=utf8";
+		/* Connection local*/
+        $dsn = "mysql:host=localhost;dbname=rendezvous;charset=utf8";
 		$login = "root";
 		$mdp = "";
+       /* $dsn = "mysql:host=sioecorieqcrepea.mysql.db;dbname=sioecorieqcrepea;charset=utf8";
+		$login = "sioecorieqcrepea";
+		$mdp = "YyDdDnDCi2";*/
         if ($this->bdd == null){
             $this->bdd = new PDO($dsn,$login,$mdp,
                 array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));

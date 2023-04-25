@@ -35,6 +35,11 @@ class RendezVousDb extends Modele {
 			return null;
     }
 
+	public function ajoutRendezVous($date, $heureDebut, $heureFin, $objet, $idClient, $idEmploye) {
+		$sql = 'INSERT INTO rendezvous(date, heureDebut, heureFin, objet, idClient, idEmploye) VALUES (?, ?, ?, ?, ?, ?)';
+		$this->executerRequete($sql, array($date, $heureDebut, $heureFin, $objet, $idClient, $idEmploye));
+	}
+
 	public function deleteRendezVousId($id) {
 		$sql = 'DELETE FROM rendezvous WHERE id = ?';
 		$this->executerRequete($sql, array($id));
