@@ -57,9 +57,6 @@ if ($cretionOk == true) {
     if ($compte["droit"] == null) {
         //ouverture page 
         header ('Location: index.php');
-    } elseif ($compte["droit"] == 1 ) {
-        //ouverture page admin
-        header ('Location: admin.php');
     } elseif ($compte["droit"] == 2 ) {
         //ouverture page professionnel
         header ('Location: professionnel.php');

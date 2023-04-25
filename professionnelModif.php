@@ -74,6 +74,10 @@
 						Présentation :
 					</label>
 					<input type="text" name="presentation" id="presentation" class="contenu-info-client" value="<?php echo $entreprise['presentation']; ?>">
+					<label for="dureCreneaux" class="titre-info-client">
+						Durée par défaut d'un rendez-vous : 
+					</label>
+					<input type="time" name="dureCreneaux" id="dureCreneaux" class="contenu-info-client" value="<?php echo $entreprise['dureCreneaux']; ?>">
 					<div class="boutons">
 						<div class="bouton">
 							<input type="submit" value="Enregistrer" class="cta">

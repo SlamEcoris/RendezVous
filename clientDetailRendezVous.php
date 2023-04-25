@@ -48,7 +48,7 @@
 				Heure de début et de fin :
 			</div>
 			<div class="contenu-detail">
-				<?php echo $rendezVous['heureDebut']." à ".$rendezVous['heureFin']; ?>
+				<?php echo $rendezVous['heureDebut'] . " à " . $rendezVous['heureFin']; ?>
 			</div>
 			<div class="titre-detail">
 				Professionnel :

@@ -20,6 +20,7 @@
 	<?php
 	$classeClient = new ClientDb();
 	$client = $classeClient->getClient($_SESSION["idCompte"]);
+	$_SESSION["idClient"] = $client["id"];
 
 	$classeRendezVous = new RendezVousDB();
 	$rendezVous = $classeRendezVous->getRendezVousIdClient($client["id"]);

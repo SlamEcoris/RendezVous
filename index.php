@@ -28,9 +28,9 @@
 						Bienvenue sur MonRendezVousPro. 
 						Ici, vous pouvez retrouver différents professionnels (médecins, photographes, professeurs particuliers, ...) 
 						et prendre rendez-vous avec eux.<br>
-						Pour cela, recherchez le professionnel avec qui vous souhaitez prendre rendez-vous près de chez vous.<br>
-						Vous pourrez retrouver tous vos rendez-vous à venir et passés dans votre compte, modifier ou annuler ceux-ci, 
-						ainsi que contacter le professionnel avec qui vous avez rendez-vous.
+						Créez votre compte et recherchez le professionnel avec qui vous souhaitez prendre rendez-vous près de chez vous.<br>
+						Vous pourrez retrouver tous vos rendez-vous à venir dans votre compte et les annuler, si vous le souhaité.
+						Vous pouvez retrouvez dans le détail de chaque rendez-vous les informations concernant le professionnel avec qui vous avez rendez-vous.
 					</div>
 					<div class="row">
 						<img alt="" src="images/ImageAccueil.png"/>

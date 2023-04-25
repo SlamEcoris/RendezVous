@@ -22,10 +22,11 @@
 	<?php
 	$classeEmploye = new EmployeDb();
 	$employe = $classeEmploye->getEmployeIdCompte($_SESSION["idCompte"]);
+	$_SESSION["idEmploye"] = $employe["id"];
 
 	$classeRendezVous = new RendezVousDB();
 	$rendezVous = $classeRendezVous->getRendezVousIdEmploye($employe["id"]);
-
+	
 	$classeEntreprise = new EntrepriseDb();
 	$entreprise = $classeEntreprise->getEntrepriseId($employe["idEntreprise"]);
 	$_SESSION["idEntreprise"]=$employe["idEntreprise"];
@@ -120,6 +121,12 @@
 					</div>
 					<div class="contenu-info-client">
 						<?php echo $entreprise['presentation']; ?>
+					</div>
+					<div class="titre-info-client">
+						Durée par défaut d'un rendez-vous :
+					</div>
+					<div class="contenu-info-client">
+						<?php echo $entreprise['dureCreneaux']; ?>
 					</div>
 				</div>
 			</section>
