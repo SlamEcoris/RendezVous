@@ -1,4 +1,7 @@
 <!doctype html>
+<?php
+	session_start();
+?>
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -8,6 +11,12 @@
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 	</head>
 	<body>
+	<?php 
+		include_once('header.php');
+	?>
+	<?php
+		$_SESSION["preCreationCompte"]=array();
+	?>
 	<main id="conteneur-index">
 		<div class="container">
 			<div class="row text-center">
@@ -19,9 +28,9 @@
 						Bienvenue sur MonRendezVousPro. 
 						Ici, vous pouvez retrouver différents professionnels (médecins, photographes, professeurs particuliers, ...) 
 						et prendre rendez-vous avec eux.<br>
-						Pour cela, recherchez le professionnel avec qui vous souhaitez prendre rendez-vous près de chez vous.<br>
-						Vous pourrez retrouver tous vos rendez-vous à venir et passés dans votre compte, modifier ou annuler ceux-ci, 
-						ainsi que contacter le professionnel avec qui vous avez rendez-vous.
+						Créez votre compte et recherchez le professionnel que vous souhaitez consulter.<br>
+						Vous pourrez retrouver tous vos rendez-vous à venir dans votre compte et les annuler, si vous le souhaitez.
+						Vous pouvez également retrouver les informations du professionnel dans le détail de chaque rendez-vous.
 					</div>
 					<div class="row">
 						<img alt="" src="images/ImageAccueil.png"/>
@@ -30,7 +39,7 @@
 				<div class="col text-center" >
 					<form method="post" action="verif.php">
 						<div class="row">
-							<h2>Connexion</h2>
+							<h2 id="connexion">Connexion</h2>
 						</div>
 						<div class="row">
 							<input type="text" name="ident" id="identifiant" class="form-control" placeholder="Identifiant">
@@ -39,7 +48,7 @@
 							<input type="password" name="mdp" id="motDePasse" class="form-control" placeholder="Mot de passe" />
 						</div><br>
 						<input type="submit" class="btn btn-primary" value="Se connecter">
-						<a href="#" role="button" class="btn btn-primary">Créer un compte</a>
+						<a href="creationCompteClient.php" role="button" class="btn btn-primary">Créer un compte</a>
 					</form>		
 				</div>		
 			</div>

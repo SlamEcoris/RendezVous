@@ -18,7 +18,7 @@
 	<?php include_once('headerProfessionnel.php'); ?>
 	<?php
 	$classeEmploye = new EmployeDb();
-	$employe = $classeEmploye->getEmployeId($_SESSION["idCompte"]);
+	$employe = $classeEmploye->getEmployeIdCompte($_SESSION["idCompte"]);
 
 	$classeEntreprise = new EntrepriseDb();
 	$entreprise = $classeEntreprise->getEntrepriseId($employe["idEntreprise"]);
@@ -73,7 +73,11 @@
 					<label for="presentation" class="titre-info-client">
 						Présentation :
 					</label>
-					<input type="text" name="presentation" id="presentation" class="contenu-info-client" value="<?php echo $entreprise['presentation']; ?>">
+					<textarea name="presentation" id="presentation" class="contenu-info-client-presentation-modif"><?php echo $entreprise['presentation']; ?></textarea>
+					<label for="dureCreneaux" class="titre-info-client">
+						Durée par défaut d'un rendez-vous : 
+					</label>
+					<input type="time" name="dureCreneaux" id="dureCreneaux" class="contenu-info-client" value="<?php echo $entreprise['dureCreneaux']; ?>">
 					<div class="boutons">
 						<div class="bouton">
 							<input type="submit" value="Enregistrer" class="cta">

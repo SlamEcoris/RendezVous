@@ -30,7 +30,7 @@
 		$entreprise = $classeEntreprise->getEntrepriseId($employe['idEntreprise']);
 	?>
 	<main>
-		<h1>Detail du rendez vous</h1>
+		<h1>Détail du rendez vous</h1>
 		<section class="detail">
 			<div class="titre-detail">
 				Objet du rendez-vous :
@@ -48,7 +48,7 @@
 				Heure de début et de fin :
 			</div>
 			<div class="contenu-detail">
-				<?php echo $rendezVous['heureDebut']." à ".$rendezVous['heureFin']; ?>
+				<?php echo $rendezVous['heureDebut'] . " à " . $rendezVous['heureFin']; ?>
 			</div>
 			<div class="titre-detail">
 				Professionnel :
@@ -94,7 +94,7 @@
 				</a>
 			</div>
 			<div class="bouton">
-				<a href="client.php" class="cta">
+				<a href="supprimeRendezVousClient.php?idRendezVous=<?php echo $idRendezVous ?>" class="cta">
 					Supprimer
 				</a>
 			</div>
