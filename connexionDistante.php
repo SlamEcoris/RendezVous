@@ -30,6 +30,6 @@ if (isset($_GET['fonc'])) {
             $json = connexionCompte($ident, $mdp);
             echo $json;
             return $json;
-        }
+        }       
     }
 }

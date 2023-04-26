@@ -36,7 +36,7 @@ $classCompte = new CompteDb();
     if ($compte["id"] != null){
         $json = json_encode($compte);
     } else { 
-        $json = "";
+        $json = 0;
     }
     return $json;
 }
