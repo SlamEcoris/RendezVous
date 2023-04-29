@@ -211,13 +211,20 @@
 												$fermetureMatin = new DateTimeImmutable($horairre[$cle]["heureFinAM"]);
 												while ($debutCreneaux<$fermetureMatin) {
 													$finCreneaux = $finCreneaux->add(new DateInterval('PT'.$creneauxHeure.'H'.$creneauxMinute.'M'.$creneauxSeconde.'S'));
-													$creneauxDispo = count($rendezVous);
-													foreach ($rendezVous as $keyOne => $valeur){
+													if (empty($rendezVous)) {
+														$creneauxDispo=0;
+														$creneauxBase = 0;
+													} else {
+														$creneauxDispo = count($rendezVous);
+														$creneauxBase = count($rendezVous);
+														foreach ($rendezVous as $keyOne => $valeur){
 														if ($rendezVous[$keyOne]["date"]==$dateComplete && $rendezVous[$keyOne]['heureDebut']==$debutCreneaux->format('H:i:s') && $rendezVous[$keyOne]['heureFin']==$finCreneaux->format('H:i:s')) {
 															$creneauxDispo = $creneauxDispo-1;
 														}
+														}
 													}
-													if ($creneauxDispo==count($rendezVous)){
+													
+													if ($creneauxDispo== $creneauxBase){
 														?>
 														<div class="le-creneau">
 															<a href="validationRendezVous.php?idEmploye=<?php echo $idEmploye ?>&&dateRdv=<?php echo $date ?>&&heureDebut=<?php echo $debutCreneaux->format('H:i') ?>&&heureFin=<?php echo $finCreneaux->format('H:i') ?>&&annee=<?php echo $annee ?>" class="le-rendez-vous-validation">
@@ -241,13 +248,21 @@
 
 												while ($debutCreneaux<$fermetureAprem) {
 													$finCreneaux = $finCreneaux->add(new DateInterval('PT'.$creneauxHeure.'H'.$creneauxMinute.'M'.$creneauxSeconde.'S'));
-													$creneauxDispo = count($rendezVous);
-													foreach ($rendezVous as $keyTwo => $valeur){
-														if ($rendezVous[$keyTwo]["date"]==$dateComplete && $rendezVous[$keyTwo]['heureDebut']==$debutCreneaux->format('H:i:s') && $rendezVous[$keyTwo]['heureFin']==$finCreneaux->format('H:i:s')) {
-															$creneauxDispo = $creneauxDispo-1;
+													if (empty($rendezVous)){
+														$creneaux = 0;
+														$creneauxBase = 0;
+													} else {
+														$creneauxDispo = count($rendezVous);
+														$creneauxBase = count($rendezVous);
+														foreach ($rendezVous as $keyTwo => $valeur){
+															if ($rendezVous[$keyTwo]["date"]==$dateComplete && $rendezVous[$keyTwo]['heureDebut']==$debutCreneaux->format('H:i:s') && $rendezVous[$keyTwo]['heureFin']==$finCreneaux->format('H:i:s')) {
+																$creneauxDispo = $creneauxDispo-1;
+															}
 														}
 													}
-													if ($creneauxDispo==count($rendezVous)) {
+													
+													
+													if ($creneauxDispo==$creneauxBase) {
 														?>
 														<div class="le-creneau">
 															<a href="validationRendezVous.php?idEmploye=<?php echo $idEmploye ?>&&dateRdv=<?php echo $date ?>&&heureDebut=<?php echo $debutCreneaux->format('H:i') ?>&&heureFin=<?php echo $finCreneaux->format('H:i') ?>&&annee=<?php echo $annee ?>" class="le-rendez-vous-validation">

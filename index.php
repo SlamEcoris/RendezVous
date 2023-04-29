@@ -33,7 +33,7 @@
 						Vous pouvez également retrouver les informations du professionnel dans le détail de chaque rendez-vous.
 					</div>
 					<div class="row">
-						<img alt="" src="images/ImageAccueil.png"/>
+						<img alt="" src="images/ImageAccueil.jpg"/>
 					</div>
 				</div>
 				<div class="col text-center" >
