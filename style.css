@@ -557,3 +557,20 @@ footer {
     border-radius: 5px;
     height: 50px;
 }
+
+.les-boutons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.infos-creation-compte-pro {
+    width: 90%;
+    margin: auto;
+    padding-bottom: 20px;
+}
+
+.mail {
+    font-weight: bold;
+    color: rgb(78, 78, 255);
+}
